@@ -1,5 +1,8 @@
 #!/usr/bin/python3
+"""
+A model that contains a base class to manage the id attribute of all classes that extend from base and avoid duplicating the same code.
 
+"""
 
 class Base:
 	"""
