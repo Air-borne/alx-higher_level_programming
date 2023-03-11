@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-A model that test different behaviors of the base class
+A module that test differents behaviors
+of the Base class
 """
 import unittest
 import pep8
