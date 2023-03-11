@@ -19,9 +19,4 @@ if __name__ == "__main__":
 	
 	b5 = Base()
 	print(b5.id)
-	
-	mil = Base(25)
-	print(f"Im Milly! and am {mil.id}")
-	
-	ben = Base()
-	print(f"I'm Berny! and my ID is {ben.id}")
+
