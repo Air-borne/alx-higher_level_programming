@@ -1,7 +1,7 @@
 # 0x0D. SQL - Introduction
 <code>SQL</code> <code>MySQL</code>
 
-Author: Bernard B. sakyi <www.linkedin.com/in/bernard-sakyi-17159420a/>
+Author: Bernard B. Sakyi <www.linkedin.com/in/bernard-sakyi-17159420a/>
 
 ### Concept
 
