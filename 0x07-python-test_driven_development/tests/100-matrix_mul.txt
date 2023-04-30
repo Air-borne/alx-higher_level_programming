@@ -1,0 +1,95 @@
+test file for 100-matrix_mul.py
+==================================
+
+
+>>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+
+>>> matrix_mul()
+Traceback (most recent call last):
+TypeError: matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
+
+>>> matrix_mul(1)
+Traceback (most recent call last):
+TypeError: matrix_mul() missing 1 required positional argument: 'm_b'
+
+>>> matrix_mul(m_b=1)
+Traceback (most recent call last):
+TypeError: matrix_mul() missing 1 required positional argument: 'm_a'
+
+>>> matrix_mul(1, 2)
+Traceback (most recent call last):
+TypeError: m_a must be a list
+
+>>> matrix_mul("hello", 2)
+Traceback (most recent call last):
+TypeError: m_a must be a list
+
+>>> matrix_mul([1], "school")
+Traceback (most recent call last):
+TypeError: m_b must be a list
+
+>>> matrix_mul([1], [2])
+Traceback (most recent call last):
+TypeError: m_a must be a list of lists
+
+>>> matrix_mul([[1]], [2])
+Traceback (most recent call last):
+TypeError: m_b must be a list of lists
+
+>>> matrix_mul([(1,)], [2])
+Traceback (most recent call last):
+TypeError: m_a must be a list of lists
+
+>>> matrix_mul([[1]], [(2,)])
+Traceback (most recent call last):
+TypeError: m_b must be a list of lists
+
+
+
+>>> matrix_mul([], [])
+Traceback (most recent call last):
+ValueError: m_a can't be empty
+
+>>> matrix_mul([[]], [[]])
+Traceback (most recent call last):
+ValueError: m_a can't be empty
+
+>>> matrix_mul([[1]], [])
+Traceback (most recent call last):
+ValueError: m_b can't be empty
+
+>>> matrix_mul([[1]], [[]])
+Traceback (most recent call last):
+ValueError: m_b can't be empty
+
+
+
+>>> matrix_mul([[1, "a"]], [[1], [1]])
+Traceback (most recent call last):
+TypeError: m_a should contain only integers or floats
+
+>>> matrix_mul([[1, 2]], [[1], [(1,)]])
+Traceback (most recent call last):
+TypeError: m_b should contain only integers or floats
+
+
+
+>>> matrix_mul([[1, 2, 3], [1]], [[1]])
+Traceback (most recent call last):
+TypeError: each row of m_a must be of the same size
+
+
+>>> matrix_mul([[1, 2, 3], [1, 12, 5]], [[1], [2, 3]])
+Traceback (most recent call last):
+TypeError: each row of m_b must be of the same size
+
+>>> matrix_mul([[1]], [[1]])
+[[1]]
+
+>>> matrix_mul([[1, 2, 3]], [[1]])
+Traceback (most recent call last):
+ValueError: m_a and m_b can't be multiplied
+
+>>> matrix_mul([[1, 2, 3]], [[1], [2]])
+Traceback (most recent call last):
+ValueError: m_a and m_b can't be multiplied
