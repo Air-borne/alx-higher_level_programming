@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-"""4-square.py
+"""102-square.py
 
 This module contains a class Square that defines a square by:
-(based on 3-square.py)
+(based on 4-square.py)
 
 
 - Private instance attribute: size:
@@ -20,6 +20,8 @@ This module contains a class Square that defines a square by:
 - Public instance method:
     def area(self): that returns the current square area
 
+- Square instance can answer to comparators: ==, !=, >, >=, < and <=
+    based on the square area
 """
 
 
@@ -67,3 +69,7 @@ class Square():
             (int) - Square area of the square
         """
         return self.__size * self.__size
+
+    def __new__(cls, size):
+        """Returns the size """
+        return size

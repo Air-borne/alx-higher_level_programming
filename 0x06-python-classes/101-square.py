@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-"""6-square.py
+"""101-square.py
 
 This module contains a class Square that defines a square by:
-(based on 5-square.py)
+(based on 6-square.py)
 
 - Private instance attribute: size:
 
@@ -22,18 +22,19 @@ This module contains a class Square that defines a square by:
           otherwise raise a TypeError exception with the message
           'position must be a tuple of 2 positive integers'
 
-- Instantiation with optional size and optional positon:
+- Instantiation with optional size and optional position:
     def __init__(self, size=0, position=(0, 0)):
 
 - Public instance method:
     def area(self): that returns the current square area
 
--Public instance method:
+- Public instance method:
     def my_print(self): that prints in stdout the square with the character #:
         if size is equal to 0, print an empty line
         position should be used by using space
 
 Printing a Square instance should have the same behavior as my_print()
+
 """
 
 
@@ -124,3 +125,18 @@ class Square():
             raise TypeError("position must be a tuple of 2 positive"
                             " integers")
         self.__position = value
+
+    def __str__(self):
+        """Prints square to stdout"""
+        ret = ""
+        if self.__size == 0:
+            return ret
+        for a in range(self.__position[1]):
+            ret += "\n"
+        for i in range(self.__size):
+            for k in range(self.__position[0]):
+                ret += ' '
+            for j in range(self.__size):
+                ret += '#'
+            ret += "\n"
+        return ret[:-1]
