@@ -1,12 +1,12 @@
-#!/ur/bin/node
+#!/usr/bin/node
 
-// class Rectangle that defines a rectangle
+// Checks for Rectangle parameters
 
 module.exports = class Rectangle {
-  constructor (w, h) {
-    if (typeof w === 'number' && typeof h === 'number' && w > 0 && h > 0) {
-      this.width = w;
-      this.height = h;
+  constructor (width, height) {
+    if (typeof width === 'number' && typeof height === 'number' && width > 0 && height > 0) {
+      this.width = width;
+      this.height = height;
     }
   }
 };
