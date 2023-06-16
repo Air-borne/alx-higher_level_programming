@@ -1,25 +1,20 @@
 #!/usr/bin/python3
-"""
-A Python script that takes in a letter and sends a POST request to http://0.0.0.0:5000/search_user with the letter as a parameter.
-"""
+"""Send a post request to a url, and checks if the response is valid json"""
 import requests
-import sys
-
+from sys import argv
 
 if __name__ == "__main__":
-    """ 
-    A Python script that takes in a letter and sends a POST request to http://0.0.0.0:500    0/search_user with the letter as a parameter.
-    """
-    get_url = "http://0.0.0.0:5000/search_user"
-    r = request.get(get_url)
-    if len(sys.argv) == 2:
-        r = requests.post(url, data={'q': sys.argv[1]})
-    else:
-        r = requests.post(url, data={'q': ""})
+    q = ""
+    if (len(argv) >= 2):
+        q = argv[1]
+
+    resp = requests.post('http://0.0.0.0:5000/search_user', data={'q': q})
+
     try:
-        if r.json() == {}:
-            print("No result")
+        body = resp.json()
+        if (len(body) == 0):
+            print('No result')
         else:
-            print("[{}] {}".format(r.json().get('id'), r.json().get('name')))
-    except:
-        print("Not a valid JSON")
+            print('[{}] {}'.format(body.get('id'), body.get('name')))
+    except Exception as e:
+        print('Not a valid JSON')

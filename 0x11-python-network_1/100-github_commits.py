@@ -1,25 +1,15 @@
 #!/usr/bin/python3
-"""
-List 10 commits  of the repository “rails”
-by the user “rails”
-"""
-import requests
+"""Lists 10 latest commits of given repository"""
 from sys import argv
-
+import requests
 
 if __name__ == "__main__":
-    """
-    List 10 commits of the repository
-    “rails” y the user “rails”
-    """
-    repo = argv[1]
-    owner = argv[2]
-    url = 'https://api.github.com/repos/{}/{}/commits'.format(owner, repo)
-    r = requests.get(url)
-    res_list = r.json()
-    try:
-        for i in range(10):
-            print("{}: {}".format(res_list[i].get('sha'), res_list[i].
-                                  get('commit').get('author').get('name')))
-    except:
-        pass
+    url = 'https://api.github.com/repos/{}/{}/commits'.format(argv[2], argv[1])
+    resp = requests.get(url).json()
+    i = 0
+    for elem in resp:
+        print('{}: {}'.format(elem.get('sha'),
+              elem.get('commit').get('author').get('name')))
+        i += 1
+        if i == 10:
+            break

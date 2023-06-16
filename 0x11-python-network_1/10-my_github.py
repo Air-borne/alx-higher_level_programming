@@ -1,22 +1,12 @@
 #!/usr/bin/python3
-"""
-Parse github credentials and uses
-Github API to display your id
-"""
-import requests
+"""Uses github credentials to get id of user, using github API"""
 from sys import argv
-
+import requests
 
 if __name__ == "__main__":
-    """
-    Parse my Github credentials and uses the
-    Github API to display your id
-    """
-    username = argv[1]
-    password = argv[2]
-    url = 'https://api.github.com/user'
-    r = requests.get(url, auth=(username, password))
     try:
-        print(r.json().get('id'))
-    except:
-        pass
+        resp = requests.get('https://api.github.com/user',
+                            auth=(argv[1], argv[2]))
+        print(resp.json().get('id'))
+    except Exception as e:
+        print('None')
